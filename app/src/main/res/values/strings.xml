@@ -1,27 +1,27 @@
 <resources>
     <string name="app_name">MCPEBackup</string>
-    <string name="large_text">詳細</string>
-    <string name="download">アプリを更新</string>
-    <string name="about">このアプリについて</string>
-    <string name="developer">開発者</string>
+    <string name="large_text">Details</string>
+    <string name="download">Update</string>
+    <string name="about">about</string>
+    <string name="developer">developer</string>
 
-    <string name="author">Name: たけしかいちょー(うえぽん)</string>
+    <string name="author">Name: Uepon(Takesi)</string>
     <string name="email">Email: piggtomop@gmail.com</string>
     <string name="github_link">Github: https://github.com/Takesikaityo/MCPEBackup</string>
 
-    <string name="terms">利用規約</string>
-    <string name="termsof">このアプリによって発生したいかなる損害も責任を負いません。 \nあなたはこのアプリによる起訴を一切しません</string>
+    <string name="terms">Terms of service</string>
+    <string name="termsof">We are not responsible for any damage caused by this application. You will not prosecute with this application at all.</string>
     <string name="date">April 2017.</string>
-    <string name="ueda">たけしかいちょー(うえぽん)</string>
-    <string name="action_help">Help</string>
-    <string name="starts_backup">バックアップを開始します…</string>
-    <string name="done_backup">バックアップを完了しました。</string>
-    <string name="show">このバックアップをインストールを開始します。\n
-        このバックアップをインストールすると今のバージョンのMinecraftPEは削除されます。\n
-        データーの保存を外部にしている人はアンインストール時にデーターが消えることはありませんが、\n
-        アプリケーションにしている方はデーターが消えてしまいます。\n
-        手順１:アンインストールする。\n
-        手順２:インストール画面に従ってインストールする。
+    <string name="ueda">Uepon(Takesi)</string>
+    <string name="action_help">help</string>
+    <string name="starts_backup">starts MCPE APK backup…</string>
+    <string name="done_backup">Done!</string>
+    <string name="show">I will install this backup.\n
+        When installing this backup, the current version of Minecraft PE will be deleted.\n
+        If you choosed ExternalStorage, you will not lost game datas.\n
+        but if you choosed application, you will lost all game datas.\n
+        step1 : uninstall MinecraftPE\n
+        step2 : install MinecraftPE
     </string>
-    <string name="launch">MinecraftPEを起動しました</string>
+    <string name="launch">launched MinecraftPE</string>
 </resources>

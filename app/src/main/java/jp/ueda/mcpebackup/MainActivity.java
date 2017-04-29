@@ -3,6 +3,7 @@ package jp.ueda.mcpebackup;
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -10,6 +11,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
@@ -78,8 +80,15 @@ public class MainActivity extends AppCompatActivity{
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.dismiss();
+                    setState(PREFERENCE_BOOTED);
                 }
             });
+
+        if(PREFERENCE_INIT == getState() ){
+            //初回起動時のみ表示する
+            alertDialog.create();
+            alertDialog.show();
+        }
 
         String sdPath = Environment.getExternalStorageDirectory() + "/MCPEBackups/";
         files = new File(sdPath).listFiles();
@@ -203,7 +212,35 @@ public class MainActivity extends AppCompatActivity{
             });
         }
     }
+    public static final int PREFERENCE_INIT = 0;
+    public static final int PREFERENCE_BOOTED = 1;
 
+    //データ保存
+    private void setState(int state) {
+        // SharedPreferences設定を保存
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        sp.edit().putInt("InitState", state).commit();
+
+        //ログ表示
+        output( String.valueOf(state) );
+    }
+
+    //データ読み出し
+    private int getState() {
+        // 読み込み
+        int state;
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        state = sp.getInt("InitState", PREFERENCE_INIT);
+
+        //ログ表示
+        output( String.valueOf(state) );
+        return state;
+    }
+
+    //データ表示
+    private void output(String string){
+        Log.d("[MCPEBackup]",string.toString());
+    }
     public void download() {
         try {
             // URL設定
