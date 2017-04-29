@@ -7,9 +7,11 @@
 
     <string name="author">Name: たけしかいちょー(うえぽん)</string>
     <string name="email">Email: piggtomop@gmail.com</string>
-    <string name="github_link">Github: https://github.com/Ogiwara-CostlierRain464/Aileen</string>
+    <string name="github_link">Github: https://github.com/Takesikaityo/MCPEBackup</string>
 
-    <string name="date">March 2017.</string>
+    <string name="terms">利用規約</string>
+    <string name="termsof">このアプリによって発生したいかなる損害も責任を負いません。 \nあなたはこのアプリによる起訴を一切しません</string>
+    <string name="date">April 2017.</string>
     <string name="ueda">たけしかいちょー(うえぽん)</string>
     <string name="action_help">Help</string>
     <string name="starts_backup">バックアップを開始します…</string>
