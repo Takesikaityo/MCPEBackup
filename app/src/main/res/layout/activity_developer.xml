@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="jp.ueda.mcpebackup.DeveloperActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ueda"
+        tools:layout_centerInParent="true"
+        tools:layout_alignParentTop="true"
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="160dp"
+        android:layout_height="142dp"
+        app:srcCompat="@mipmap/plus_google"
+        android:layout_below="@+id/textView"
+        tools:layout_centerInParent="true"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="112dp"
+        tools:layout_editor_absoluteY="58dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="170dp"
+        android:layout_height="159dp"
+        app:srcCompat="@mipmap/twitter"
+        android:layout_below="@+id/imageButton"
+        tools:layout_centerInParent="true"
+        tools:layout_editor_absoluteX="107dp"
+        tools:layout_editor_absoluteY="200dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="169dp"
+        android:layout_height="181dp"
+        app:srcCompat="@mipmap/youtube"
+        android:layout_below="@+id/imageButton2"
+        tools:layout_centerInParent="true"
+        tools:layout_editor_absoluteY="357dp"
+        tools:layout_editor_absoluteX="108dp"
+        tools:ignore="MissingConstraints" />
+</RelativeLayout>
