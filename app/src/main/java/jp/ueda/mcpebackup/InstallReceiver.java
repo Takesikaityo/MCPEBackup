@@ -20,6 +20,38 @@ public class InstallReceiver extends BroadcastReceiver {
             intent.setClass(context, MainActivity.class);
             Bundle bandle = new Bundle();
             bandle.putString("type", "backup");
+            bandle.putString("package", "com.mojang.minecraftpe");
+            bandle.putString("name","MinecraftPE_");
+            intent.putExtras(bandle);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+        }
+        if(packageName.equals("io.mrarm.mctoolbox")){
+            intent.setClass(context, MainActivity.class);
+            Bundle bandle = new Bundle();
+            bandle.putString("type", "backup");
+            bandle.putString("package", "io.mrarm.mctoolbox");
+            bandle.putString("name","ToolBox_");
+            intent.putExtras(bandle);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+        }
+        if(packageName.equals("net.zhuoweizhang.mcpelauncher")){
+            intent.setClass(context, MainActivity.class);
+            Bundle bandle = new Bundle();
+            bandle.putString("type", "backup");
+            bandle.putString("package", "net.zhuoweizhang.mcpelauncher");
+            bandle.putString("name","BlockLauncher_");
+            intent.putExtras(bandle);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+        }
+        if(packageName.equals("net.zhuoweizhang.mcpelauncher.pro")){
+            intent.setClass(context, MainActivity.class);
+            Bundle bandle = new Bundle();
+            bandle.putString("type", "backup");
+            bandle.putString("package", "net.zhuoweizhang.mcpelauncher.pro");
+            bandle.putString("name","BlockLauncherPro_");
             intent.putExtras(bandle);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);

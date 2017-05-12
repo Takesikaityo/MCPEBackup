@@ -8,6 +8,9 @@
     <string name="author">Name: たけしかいちょー(うえぽん)</string>
     <string name="email">Email: piggtomop@gmail.com</string>
     <string name="github_link">Github: https://github.com/Takesikaityo/MCPEBackup</string>
+    <string name="info">このアプリはMinecraftPE、および関連アプリをバックアップすることが可能です。</string>
+    <string name="update_new">2.0での新機能</string>
+    <string name="uudate_new1">MinercfatPE関係のアプリもバックアップできるように</string>
 
     <string name="terms">利用規約</string>
     <string name="termsof">このアプリによって発生したいかなる損害も責任を負いません。 \nあなたはこのアプリによる起訴を一切してはいけません。</string>

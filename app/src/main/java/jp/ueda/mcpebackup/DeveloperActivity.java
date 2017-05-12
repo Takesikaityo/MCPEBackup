@@ -43,7 +43,7 @@ public class DeveloperActivity extends AppCompatActivity {
         // build it by setting up all
         customTabsIntent = intentBuilder.build();
 
-        ImageButton google = (ImageButton) findViewById(R.id.imageButton);
+        ImageButton google = (ImageButton) findViewById(R.id.gPlusIcon);
         google.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,7 +54,7 @@ public class DeveloperActivity extends AppCompatActivity {
             }
         });
 
-        ImageButton twitter = (ImageButton) findViewById(R.id.imageButton2);
+        ImageButton twitter = (ImageButton) findViewById(R.id.twitterIcon);
         twitter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,14 +65,14 @@ public class DeveloperActivity extends AppCompatActivity {
             }
         });
 
-        ImageButton youtube = (ImageButton) findViewById(R.id.imageButton3);
+        ImageButton youtube = (ImageButton) findViewById(R.id.githubIcon);
         youtube.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
                 CustomTabsIntent customTabsIntent = builder.build();
                 customTabsIntent.intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                customTabsIntent.launchUrl(getApplicationContext(), Uri.parse("https://www.youtube.com/channel/UCZQZHTAsIhmqCKQ8SDL3Uug"));
+                customTabsIntent.launchUrl(getApplicationContext(), Uri.parse("https://github.com/takesikaityo"));
             }
         });
     }

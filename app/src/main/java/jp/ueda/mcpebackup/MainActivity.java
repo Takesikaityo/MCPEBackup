@@ -27,6 +27,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import com.nispok.snackbar.SnackbarManager;
 
 import java.io.File;
@@ -56,6 +60,11 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-6877787723487989/5365091159");
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
@@ -88,6 +97,23 @@ public class MainActivity extends AppCompatActivity{
             //初回起動時のみ表示する
             alertDialog.create();
             alertDialog.show();
+        }
+        AlertDialog.Builder alertDialog1=new AlertDialog.Builder(this);
+        alertDialog1.setTitle(R.string.update_new);//set title
+        alertDialog1.setMessage(R.string.termsof);//set content
+        alertDialog1.setIcon(R.mipmap.ic_launcher);//set icon
+        alertDialog1.setCancelable(false);
+        alertDialog1.setPositiveButton("OK",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                setState(PREFERENCE_BOOTED);
+            }
+        });
+        if(PREFERENCE_INIT == getState1() ){
+            //初回起動時のみ表示する
+            alertDialog1.create();
+            alertDialog1.show();
         }
 
         String sdPath = Environment.getExternalStorageDirectory() + "/MCPEBackups/";
@@ -133,6 +159,8 @@ public class MainActivity extends AppCompatActivity{
         Bundle bundle = intent.getExtras();
         if (bundle != null) {
             String type = bundle.getString("type");
+            String app = bundle.getString("package");
+            String app_name = bundle.getString("name");
             if (Objects.equals(type, "backup")) {
                 Log.d("[MCPEBackup]", "Starts MCPE APK Backup");
                 PackageManager pm = this.getPackageManager();
@@ -141,9 +169,9 @@ public class MainActivity extends AppCompatActivity{
                     SnackbarManager.show(
                             com.nispok.snackbar.Snackbar.with(this)
                                     .text(R.string.starts_backup));
-                    PackageInfo packageInfo = pm.getPackageInfo("com.mojang.minecraftpe", 0);
+                    PackageInfo packageInfo = pm.getPackageInfo(app, 0);
                     versionName = packageInfo.versionName;
-                    ApplicationInfo appInfo = pm.getApplicationInfo("com.mojang.minecraftpe", 0);
+                    ApplicationInfo appInfo = pm.getApplicationInfo(app, 0);
                     String appFile = appInfo.sourceDir;
                     File src = new File(appFile);
 
@@ -151,7 +179,7 @@ public class MainActivity extends AppCompatActivity{
                     File file = new File(PATH);
                     file.mkdirs();
 
-                    File outputFile = new File(file, "MinecraftPE_" + versionName + ".apk");
+                    File outputFile = new File(file, app_name + versionName + ".apk");
                     FileChannel srcChannel = null;
                     FileChannel destChannel = null;
                     try {
@@ -237,7 +265,28 @@ public class MainActivity extends AppCompatActivity{
         return state;
     }
 
-    //データ表示
+    //データ保存
+    private void setState1(int state) {
+        // SharedPreferences設定を保存
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        sp.edit().putInt("version", 11).commit();
+
+        //ログ表示
+        output( String.valueOf(state) );
+    }
+
+    //データ読み出し
+    private int getState1() {
+        // 読み込み
+        int state;
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        state = sp.getInt("version", 11);
+
+        //ログ表示
+        output( String.valueOf(state) );
+        return state;
+    }
+
     private void output(String string){
         Log.d("[MCPEBackup]",string.toString());
     }
@@ -270,7 +319,7 @@ public class MainActivity extends AppCompatActivity{
             // Intent生成
             Intent intent = new Intent(Intent.ACTION_VIEW);
             // MIME type設定
-            intent.setDataAndType(Uri.fromFile(new File(Environment.getExternalStorageDirectory() + "/MCPEBackup/tmp/" + "MCPEBackup.apk")), "application/vnd.android.package-archive");
+            intent.setDataAndType(Uri.fromFile(new File(Environment.getExternalStorageDirectory() + "/MCPEBackups/tmp/" + "MCPEBackup.apk")), "application/vnd.android.package-archive");
             // Intent発行
             startActivity(intent);
         } catch (MalformedURLException e) {

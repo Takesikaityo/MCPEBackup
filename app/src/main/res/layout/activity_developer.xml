@@ -8,46 +8,94 @@
     tools:context="jp.ueda.mcpebackup.DeveloperActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/aboutTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ueda"
-        tools:layout_centerInParent="true"
-        tools:layout_alignParentTop="true"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="16dp"
-        tools:ignore="MissingConstraints" />
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:text="@string/about"
+        android:textAllCaps="true"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/aboutCat"
+        android:layout_below="@id/aboutTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin" />
+
+    <TextView
+        android:id="@+id/aboutText"
+        android:layout_below="@id/aboutCat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:text="@string/ueda" />
+
+    <TextView
+        android:id="@+id/instructionsText"
+        android:layout_below="@id/aboutText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:text="@string/info" />
+
+    <TextView
+        android:id="@+id/credits"
+        android:layout_below="@id/instructionsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin" />
+
+    <LinearLayout
+        android:layout_below="@id/credits"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
 
     <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="160dp"
-        android:layout_height="142dp"
-        app:srcCompat="@mipmap/plus_google"
-        android:layout_below="@+id/textView"
-        tools:layout_centerInParent="true"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="112dp"
-        tools:layout_editor_absoluteY="58dp" />
+        android:id="@+id/githubIcon"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/github"/>
 
     <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="170dp"
-        android:layout_height="159dp"
-        app:srcCompat="@mipmap/twitter"
-        android:layout_below="@+id/imageButton"
-        tools:layout_centerInParent="true"
-        tools:layout_editor_absoluteX="107dp"
-        tools:layout_editor_absoluteY="200dp"
-        tools:ignore="MissingConstraints" />
+        android:id="@+id/twitterIcon"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/twitter" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="169dp"
-        android:layout_height="181dp"
-        app:srcCompat="@mipmap/youtube"
-        android:layout_below="@+id/imageButton2"
-        tools:layout_centerInParent="true"
-        tools:layout_editor_absoluteY="357dp"
-        tools:layout_editor_absoluteX="108dp"
-        tools:ignore="MissingConstraints" />
+        android:id="@+id/gPlusIcon"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/googleplus" />
+    </LinearLayout>
 </RelativeLayout>

@@ -8,6 +8,9 @@
     <string name="author">Name: Uepon(Takesi)</string>
     <string name="email">Email: piggtomop@gmail.com</string>
     <string name="github_link">Github: https://github.com/Takesikaityo/MCPEBackup</string>
+    <string name="info">This app can backups MinecraftPE and similar apps.</string>
+    <string name="update_new">What\'s New in 2.0?</string>
+    <string name="uudate_new1">MinercraftPE similar app can backup</string>
 
     <string name="terms">Terms of service</string>
     <string name="termsof">We are not responsible for any damage caused by this application. You will not prosecute with this application at all.</string>
@@ -24,4 +27,5 @@
         step2 : install MinecraftPE
     </string>
     <string name="launch">launched MinecraftPE</string>
+    <string name="banner_ad_unit_id">ca-app-pub-6877787723487989/5365091159</string>
 </resources>
