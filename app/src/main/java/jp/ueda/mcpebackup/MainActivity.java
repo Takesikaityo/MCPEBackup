@@ -63,9 +63,17 @@ public class MainActivity extends AppCompatActivity{
 
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-6877787723487989/5365091159");
         AdView mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("2578219E7B61CA89D74B3117182DA8C7")  // テスト用のデバイスID
+                .build();
         mAdView.loadAd(adRequest);
-
+        SharedPreferences pref = getSharedPreferences("version", MODE_WORLD_WRITEABLE);
+        if(pref.contains("2.0")) {
+        }else{
+            SharedPreferences.Editor editor = pref.edit();
+            editor.putString("2.0", "version");
+            editor.apply();
+        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
                 // permissionが許可されていません
